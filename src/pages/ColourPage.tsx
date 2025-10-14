@@ -10,7 +10,7 @@ export const ColourPage = () => {
 
   return (
     <div className={styles.colourPage}>
-      <h1>Colour for {make}</h1>
+      <h1>Colour for {make} {state.car.model}</h1>
       <select
         value={state.car.colour || ''}
         onChange={e => setCarState({ ...state.car, colour: e.target.value as Colours })}
@@ -23,7 +23,7 @@ export const ColourPage = () => {
         ))}
       </select>
       <div className={styles.navLink}>
-        <Link to="/make">Back to Make Page</Link>
+        <Link to="/complete">Complete</Link>
       </div>
     </div>
   );

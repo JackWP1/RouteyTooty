@@ -23,8 +23,8 @@ export const ModelPage = () => {
       </select>
 
       <div className={styles.navLink}>
-        <Link to="/">Back to Make</Link> |{' '}
-        <Link to="/model">Go to Colour</Link>
+        <Link to="/make">Back to Make</Link> |{' '}
+        <Link to="/colour">Go to Colour</Link>
       </div>
     </div>
   );

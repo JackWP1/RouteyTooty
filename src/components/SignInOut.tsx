@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useStateContext } from "../context/StateContext";
 import styles from "./SignInOut.module.scss";
 
 export const SignInOut = ({inline = false}: {inline?: boolean}) => {
 	const { state, setUserAuth, setCarState } = useStateContext();
+	const inputRef = useRef<HTMLInputElement>(null);
 	const [userString, setUserString] = useState<string>(
 		state.userAuth.userId || "",
 	);
@@ -15,8 +16,7 @@ export const SignInOut = ({inline = false}: {inline?: boolean}) => {
 		}
 
 		setUserAuth({ isLoggedIn: false, userId: "" });
-		const input = document.querySelector("input");
-		input?.focus();
+		inputRef.current?.focus();
 	};
 
     const handleSignOut = () => {
@@ -41,6 +41,7 @@ export const SignInOut = ({inline = false}: {inline?: boolean}) => {
 				<fieldset>
 					<input
 						type="text"
+						ref={inputRef}
 						value={userString}
 						onChange={(e) => setUserString(e.target.value)}
 					/>
