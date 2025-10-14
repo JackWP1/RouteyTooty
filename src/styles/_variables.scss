@@ -1,0 +1,17 @@
+$primary-light: #f6f8fa;
+$primary-dark: #333;
+$primary-grey: #888;
+
+:root {
+    color-scheme: light dark;
+    color: $primary-light;
+    background-color: $primary-dark;
+}
+
+@media (prefers-color-scheme: light) {
+
+    :root {
+        color: $primary-dark;
+        background-color: $primary-light;
+    }
+}

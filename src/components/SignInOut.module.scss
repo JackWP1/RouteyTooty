@@ -1,0 +1,20 @@
+.component {
+    position: absolute;
+    background-color: gray;
+    top: 1rem;
+    right: 1rem;
+
+    input {
+        height: 2rem;
+    }
+
+    button {
+        height: 2.4rem;
+        margin-left: 0.5rem;
+        cursor: pointer;
+    }
+}
+
+.inlineComponent {
+    position:relative;
+}

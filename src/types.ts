@@ -1,14 +1,17 @@
-// src/types.ts
-
-export type Makes = 'Audi' | 'BMW';
-export type Colours = 'Red' | 'Blue' | 'Black' | 'White';
+import type { Colours, Makes, Models } from "./config/config";
 
 export interface Car {
-  make?: Makes;
-  colour?: Colours;
+	make?: Makes | undefined;
+	model?: Models | undefined;
+	colour?: Colours | undefined;
+}
+
+export interface Auth {
+	isLoggedIn: boolean;
+	userId: string | undefined;
 }
 
 export interface State {
-  userIsLoggedIn: boolean;
-  car: Car;
+	userAuth: Auth;
+	car: Car;
 }

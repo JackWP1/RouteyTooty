@@ -1,23 +1,28 @@
-import { makes } from '../config/config';
+import { carConfig, type Makes } from '../config/config';
 import { useStateContext } from '../context/StateContext';
-import type { Makes } from '../types';
-
+import { Link } from 'react-router-dom';
+import styles from './MakePage.module.scss';
 
 export const MakePage = () => {
-  const { state, setCarMake } = useStateContext();
+  const { state, setCarState } = useStateContext();
   return (
-    <div>
+    <div className={styles.makePage}>
       <h1>Make</h1>
       <label htmlFor="car-make">Car Make:</label>
       <select
         value={state.car.make || ''}
-        onChange={e => setCarMake(e.target.value as Makes)}
+        onChange={e => setCarState({ ...state.car, make: e.target.value as Makes})}
+        className={styles.makeSelect}
       >
         <option value="" disabled>Select Make</option>
-        {makes.map(make => (
+        {Object.keys(carConfig).map(make => (
           <option key={make} value={make}>{make}</option>
         ))}
       </select>
+      <div className={styles.navLink}>
+        <Link to="/">Back to Homepage</Link> |{' '}
+        <Link to="/model">Go to Model Page</Link>
+      </div>
     </div>
   );
 };
