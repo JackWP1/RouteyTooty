@@ -1,7 +1,7 @@
-import { useStateContext } from '../context/StateContext';
 import { Link } from 'react-router-dom';
-import styles from './MakePage.module.scss';
+import { useStateContext } from '../context/StateContext';
 import { carConfig, makes, type Models } from '../config/config';
+import styles from './Page.module.scss';
 
 export const ModelPage = () => {
   const { state, setCarState } = useStateContext();
@@ -9,7 +9,7 @@ export const ModelPage = () => {
   const make = state.car.make || makes.Audi; // Default to Audi if make is undefined
 
   return (
-    <div className={styles.modelPage}>
+    <div className={styles.component}>
       <h1>Model</h1>
       <select
         value={state.car.model || ''}

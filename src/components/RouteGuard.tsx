@@ -1,20 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useStateContext } from "../context/StateContext";
 
 type RouteGuardProps = {
+	isAllowed: boolean;
+	redirectPath?: string;
   children?: React.ReactNode;
 };
 
-export const RouteGuard = ({ children }: RouteGuardProps) => {
-	const { state } = useStateContext();
-	if (!state.car.make) {
-		return <Navigate to="/make" replace />;
-	}
-	if (!state.car.model) {
-		return <Navigate to="/model" replace />;
-	}
-	if (!state.car.colour) {
-		return <Navigate to="/colour" replace />;
+export const RouteGuard = ({ isAllowed, redirectPath = "/", children }: RouteGuardProps) => {
+	if (!isAllowed) {
+		return <Navigate to={redirectPath} replace />;
 	}
 	return children ? children : <Outlet />;
 };

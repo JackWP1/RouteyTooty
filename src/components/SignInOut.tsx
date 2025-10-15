@@ -31,6 +31,7 @@ export const SignInOut = ({inline = false}: {inline?: boolean}) => {
 				<>
 				<p>Signed in as {state.userAuth.userId}</p>
 				<button
+				className={styles.signInButton}
 					type="button"
 					onClick={handleSignOut}
 				>
@@ -45,7 +46,7 @@ export const SignInOut = ({inline = false}: {inline?: boolean}) => {
 						value={userString}
 						onChange={(e) => setUserString(e.target.value)}
 					/>
-					<button type="button" onClick={handleSignIn}>
+					<button type="button" className={styles.signInButton} onClick={handleSignIn}>
 						Sign in
 					</button>
 				</fieldset>

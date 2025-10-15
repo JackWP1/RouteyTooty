@@ -1,6 +1,7 @@
-import { SignInOut } from "../components/SignInOut";
-import { useStateContext } from "../context/StateContext";
 import { Link } from "react-router-dom";
+import { useStateContext } from "../context/StateContext";
+import { SignInOut } from "../components/SignInOut";
+import styles from './Page.module.scss';
 
 export const LandingPage = () => {
 	const { state } = useStateContext();
@@ -10,7 +11,7 @@ export const LandingPage = () => {
 		: "Welcome to RouteyTooty!";
 
 	return (
-		<div>
+		<div className={styles.component}>
 			<h1>{message}</h1>
 			<p>Your one-stop solution for all routing needs.</p>
 			<p>Get started by:</p>

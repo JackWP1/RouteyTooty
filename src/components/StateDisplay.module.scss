@@ -1,7 +1,14 @@
 .state-display {
-    display: inline-block;
+  display: inline-block;
   background: #455b70;
   padding: 1rem;
   border-radius: 6px;
   margin: 2rem;
+}
+
+@media (prefers-color-scheme: light) {
+
+  .state-display {
+    color: aliceblue;
+  }
 }

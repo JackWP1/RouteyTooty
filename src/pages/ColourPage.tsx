@@ -1,7 +1,7 @@
 import { useStateContext } from '../context/StateContext';
 import { carConfig, type Colours } from '../config/config';
 import { Link } from 'react-router-dom';
-import styles from './ColourPage.module.scss';
+import styles from './Page.module.scss';
 
 export const ColourPage = () => {
   const { state, setCarState } = useStateContext();
@@ -9,7 +9,7 @@ export const ColourPage = () => {
   const colours = make ? carConfig[make]?.colours : [];
 
   return (
-    <div className={styles.colourPage}>
+    <div className={styles.component}>
       <h1>Colour for {make} {state.car.model}</h1>
       <select
         value={state.car.colour || ''}
@@ -22,8 +22,12 @@ export const ColourPage = () => {
           <option key={colour} value={colour}>{colour}</option>
         ))}
       </select>
-      <div className={styles.navLink}>
+      <div className={styles.navLinkComplete}>
         <Link to="/complete">Complete</Link>
+      </div>
+      <div className={styles.navLink}>
+        <Link to="/home">Back to Homepage</Link> |{' '}
+        <Link to="/model">Back to Model Page</Link>
       </div>
     </div>
   );

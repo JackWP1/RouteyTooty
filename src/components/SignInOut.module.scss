@@ -16,5 +16,13 @@
 }
 
 .inlineComponent {
+    @extend .component;
     position:relative;
 }
+
+@media (prefers-color-scheme: light) {
+  .signInButton{
+    color: aliceblue;
+  }
+}
+

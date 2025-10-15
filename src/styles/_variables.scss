@@ -1,11 +1,11 @@
-$primary-light: #f6f8fa;
+$primary-light: #d0d0d0;
 $primary-dark: #333;
 $primary-grey: #888;
 
 :root {
-    color-scheme: light dark;
-    color: $primary-light;
-    background-color: $primary-dark;
+  color-scheme: light dark;
+  color: $primary-light;
+  background-color: $primary-dark;
 }
 
 a {
@@ -13,23 +13,25 @@ a {
   color: #9fa4ff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
 @media (prefers-color-scheme: light) {
 
-    :root {
-        color: $primary-dark;
-        background-color: $primary-light;
-    }
+  :root {
+    color: $primary-dark;
+    background-color: $primary-light;
+  }
 
-    a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+  }
+
+  a:hover {
+    color: #535bf2;
+  }
 }
