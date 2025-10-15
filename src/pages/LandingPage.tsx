@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useStateContext } from "../context/StateContext";
 import { SignInOut } from "../components/SignInOut";
-import styles from './Page.module.scss';
+import styles from "./Page.module.scss";
 
 export const LandingPage = () => {
 	const { state } = useStateContext();
@@ -18,7 +18,13 @@ export const LandingPage = () => {
 			{state.userAuth.isLoggedIn ? (
 				<Link to="/make">Configuring your first car</Link>
 			) : (
-				<SignInOut inline={true} />
+				<>
+					<SignInOut inline={true} />
+
+					<p>OR</p>
+
+					<Link to="/make">Configuring your first car without an account</Link>
+				</>
 			)}
 		</div>
 	);
