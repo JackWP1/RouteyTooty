@@ -1,12 +1,15 @@
 import { useStateContext } from '../context/StateContext';
-import { carConfig, type Colours } from '../config/config';
 import { Link } from 'react-router-dom';
 import styles from './Page.module.scss';
+import { getCarConfig } from '../ults/config';
+import type { Colours, Makes } from '../config/config';
 
 export const ColourPage = () => {
-  const { state, setCarState } = useStateContext();
-  const make = state.car.make;
-  const colours = make ? carConfig[make]?.colours : [];
+  const { state, setCarState } = useStateContext(); 
+
+  const config = getCarConfig(state);
+
+  const make: Makes = state.car.make || "Ferrari"; // Fallback of Ferrari for now
 
   return (
     <div className={styles.component}>
@@ -18,7 +21,7 @@ export const ColourPage = () => {
         className={styles.colourSelect}
       >
         <option value="" disabled>Select Colour</option>
-        {colours.map(colour => (
+        {config[make]?.colours.map(colour => (
           <option key={colour} value={colour}>{colour}</option>
         ))}
       </select>

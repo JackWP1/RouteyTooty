@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useStateContext } from '../context/StateContext';
-import { carConfig, makes, type Models } from '../config/config';
+import type { Models, Makes } from '../config/config';
 import styles from './Page.module.scss';
+import { getCarConfig } from '../ults/config';
 
 export const ModelPage = () => {
   const { state, setCarState } = useStateContext();
+  const config = getCarConfig(state);
 
-  const make = state.car.make || makes.Audi; // Default to Audi if make is undefined
+  const make:Makes = state.car.make || "Ferrari"; // Fallback of Ferrari for now
 
   return (
     <div className={styles.component}>
@@ -17,7 +19,7 @@ export const ModelPage = () => {
         className={styles.modelSelect}
       >
         <option value="" >Select Model</option>
-        {carConfig[make]?.models.map(model => (
+        {config[make]?.models.map(model => (
           <option key={model} value={model}>{model}</option>
         ))}
       </select>

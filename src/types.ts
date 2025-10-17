@@ -1,6 +1,7 @@
-import type { Colours, Makes, Models } from "./config/config";
+import type { CarTypes, Colours, Makes, Models } from "./config/config";
 
 export interface Car {
+	carType?: CarTypes | undefined;
 	make?: Makes | undefined;
 	model?: Models | undefined;
 	colour?: Colours | undefined;
