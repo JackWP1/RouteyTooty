@@ -10,7 +10,8 @@ const StateDisplay = () => {
         {JSON.stringify(state, null, 2)}
       </pre>
       <span>For testing:</span>
-<button type="button" onClick={() => setCarState({ ...initialState.car })}>Reset Car State </button>
+<button type="button" onClick={() => setCarState({ ...initialState.car })}>Reset Car App State </button>
+<button type="button" onClick={() => localStorage.clear()}>Delete Mock DataBase </button>
     </div>
   );
 };
