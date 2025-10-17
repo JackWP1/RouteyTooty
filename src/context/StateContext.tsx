@@ -3,7 +3,7 @@ import type { State, Car, Auth } from "../types";
 import type { ReactNode } from "react";
 import { persistence } from "../ults/persist";
 
-const initialState: State = {
+export const initialState: State = {
 	userAuth: {
 		isLoggedIn: false,
 		userId: "",

@@ -1,14 +1,24 @@
-.state-display {
+.stateDisplay {
   display: inline-block;
   background: #455b70;
   padding: 1rem;
   border-radius: 6px;
   margin: 2rem;
+
+  span {
+    font-size: .7rem;
+    padding-inline: 5px;
+  }
+
+  button {
+    font-size: .7rem;
+    background-color: #40474c;
+  }
 }
 
 @media (prefers-color-scheme: light) {
 
-  .state-display {
+  .stateDisplay {
     color: aliceblue;
   }
 }
